@@ -4,10 +4,15 @@ This directory contains the Sage parameter scripts and Go benchmark artifacts fo
 
 ## How to Use This Artifact
 
-Clone the anonymous artifact repository:
+Download or clone the anonymous artifact from this url:
+
+```text
+https://anonymous.4open.science/r/DualMS20Artifact43ED
+```
+
+Then enter the artifact directory:
 
 ```bash
-git clone <this-anonymous-artifact-url>
 cd <artifact-directory>
 ```
 
