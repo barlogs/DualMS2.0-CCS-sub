@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+
 usage() {
   cat <<'EOF'
 Usage:
@@ -38,6 +40,8 @@ Environment overrides:
   UAE_PORT             default: 22
   RUN_TIMEOUT_SECONDS  default: 600
   OUTPUT_ROOT          default: $HK_WORKDIR/network-runs
+  TABLE8_SUMMARY_SCRIPT
+                       default: network/table8_summary.py
 
 Notes:
   - This uses the DualMS network-only n=8 parameter profile.
@@ -77,6 +81,7 @@ UAE_HOST="${UAE_HOST:-139.185.38.183}"
 UAE_PORT="${UAE_PORT:-22}"
 RUN_TIMEOUT_SECONDS="${RUN_TIMEOUT_SECONDS:-600}"
 OUTPUT_ROOT="${OUTPUT_ROOT:-$HK_WORKDIR/network-runs}"
+TABLE8_SUMMARY_SCRIPT="${TABLE8_SUMMARY_SCRIPT:-$SCRIPT_DIR/table8_summary.py}"
 
 SSH_OPTS=(
   -i "$SSH_KEY"
@@ -233,6 +238,8 @@ require_local_file "$HK_WORKDIR/$BINARY_NAME" "binary"
 require_local_file "$HK_WORKDIR/$HK_CONFIG_TEMPLATE" "HK config template"
 require_local_file "$HK_WORKDIR/$REMOTE_CONFIG_TEMPLATE" "remote config template"
 require_local_file "$SSH_KEY" "SSH key"
+require_local_file "$TABLE8_SUMMARY_SCRIPT" "Table 8 summary script"
+command -v python3 >/dev/null || { echo "python3 is required for the Table 8 summary" >&2; exit 1; }
 
 mkdir -p "$OUTPUT_ROOT"
 
@@ -338,3 +345,5 @@ echo
 echo "Completed $RUNS run(s)."
 echo "Coordinator summaries: $COORD_SUMMARIES"
 echo "All summaries: $ALL_SUMMARIES"
+echo
+python3 "$TABLE8_SUMMARY_SCRIPT" "$COORD_SUMMARIES"

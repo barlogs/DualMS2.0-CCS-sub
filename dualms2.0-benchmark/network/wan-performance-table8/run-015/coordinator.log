@@ -1,0 +1,50 @@
+Rounding01 network coordinator ready: listen=0.0.0.0:7100 active_signers=8 profile=sec3-rounding01-n8 q=4261376513 signer_M=1.22284
+Waiting for 7 remote signer(s)...
+Accepted signer 1 bootstrap: bytes_in=12633 bytes_out=181
+Accepted signer 2 bootstrap: bytes_in=12633 bytes_out=181
+Accepted signer 3 bootstrap: bytes_in=12633 bytes_out=181
+Accepted signer 5 bootstrap: bytes_in=12633 bytes_out=181
+Accepted signer 4 bootstrap: bytes_in=12633 bytes_out=181
+Accepted signer 7 bootstrap: bytes_in=12633 bytes_out=181
+Accepted signer 6 bootstrap: bytes_in=12633 bytes_out=181
+Network attempt 1 rejected by signers [0 3 7]; retrying with session network-session-001-attempt-002
+Rounding01 network signing complete: signers=[0 1 2 3 4 5 6 7] keyagg_duration=5.306 ms success_attempt=2 rejected_attempts=1 bootstrap=5662.083 ms online=1953.273 ms wall=7615.358 ms coordinator_sign1_success=5.725 ms coordinator_sign1_total=10.162 ms coordinator_sign2_success=14.903 ms coordinator_sign2_total=34.683 ms round1_collect_success=255.932 ms round1_broadcast_success=4.752 ms round1_collect_total=851.697 ms round1_broadcast_total=8.019 ms partial_collect_success=460.671 ms decision_broadcast_success=0.240 ms partial_collect_total=1031.725 ms decision_broadcast_total=0.475 ms sign1_network_success=260.684 ms sign2_network_success=460.911 ms sign1_e2e_success=266.409 ms sign2_e2e_success=482.464 ms sagg=6.650 ms verify=7.136 ms bytes_in=615923 bytes_out=2091528
++-------------------------------+--------------------+
+| Coordinator Summary           |                    |
++-------------------------------+--------------------+
+| Metric                        | Value              |
++-------------------------------+--------------------+
+| role                          | coordinator        |
+| signers                       | [0 1 2 3 4 5 6 7]  |
+| parameter_set                 | sec3-rounding01-n8 |
+| q                             | 4261376513         |
+| signer_m                      | 1.222845           |
+| target_rejection_mn           | 5.000000           |
+| success_attempt               | 2                  |
+| rejected_attempts             | 1                  |
+| bootstrap_ms                  | 5662.083           |
+| online_ms                     | 1953.273           |
+| wall_ms                       | 7615.358           |
+| keyagg_ms                     | 5.306              |
+| coord_sign1_success_ms        | 5.725              |
+| coord_sign1_total_ms          | 10.162             |
+| coord_sign2_success_ms        | 14.903             |
+| coord_sign2_total_ms          | 34.683             |
+| round1_collect_success_ms     | 255.932            |
+| round1_broadcast_success_ms   | 4.752              |
+| round1_collect_total_ms       | 851.697            |
+| round1_broadcast_total_ms     | 8.019              |
+| partial_collect_success_ms    | 460.671            |
+| decision_broadcast_success_ms | 0.240              |
+| partial_collect_total_ms      | 1031.725           |
+| decision_broadcast_total_ms   | 0.475              |
+| sign1_network_success_ms      | 260.684            |
+| sign2_network_success_ms      | 460.911            |
+| sign1_e2e_success_ms          | 266.409            |
+| sign2_e2e_success_ms          | 482.464            |
+| sagg_ms                       | 6.650              |
+| verify_ms                     | 7.136              |
+| bytes_in                      | 615923             |
+| bytes_out                     | 2091528            |
++-------------------------------+--------------------+
+NETWORK_SUMMARY {"role":"coordinator","coordinator_id":0,"signer_ids":[0,1,2,3,4,5,6,7],"active_signers":8,"message":"rounding01-vps-network-demo-n8-profile8-rounding01-n8-20260425-224131-run-015","parameter_set":"sec3-rounding01-n8","q":4261376513,"signer_m":1.2228445449938519,"target_rejection_mn":5,"success_attempt":2,"rejected_attempts":1,"bootstrap_ms":5662.083198,"online_ms":1953.273403,"wall_ms":7615.357692,"keyagg_ms":5.306405,"coordinator_sign1_success_ms":5.724603,"coordinator_sign1_total_ms":10.161767,"coordinator_sign2_success_ms":14.903474,"coordinator_sign2_total_ms":34.68313,"round1_collect_success_ms":255.931564,"round1_broadcast_success_ms":4.752477,"round1_collect_total_ms":851.697481,"round1_broadcast_total_ms":8.019418,"partial_collect_success_ms":460.670521,"decision_broadcast_success_ms":0.240081,"partial_collect_total_ms":1031.724729,"decision_broadcast_total_ms":0.474886,"sign1_network_success_ms":260.684041,"sign2_network_success_ms":460.910602,"sign1_e2e_success_ms":266.408644,"sign2_e2e_success_ms":482.464192,"sagg_ms":6.650116,"verify_ms":7.136185,"bytes_in":615923,"bytes_out":2091528}

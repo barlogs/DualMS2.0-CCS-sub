@@ -1,0 +1,25 @@
+{
+  "table": "Table 8",
+  "schemes": [
+    {
+      "scheme": "DualMS",
+      "runs": 10,
+      "rounds": {
+        "sign1": {
+          "local_compute_ms": 4.392,
+          "network_latency_ms": 249.335,
+          "combine_ms": null,
+          "end_to_end_ms": 253.727
+        },
+        "sign2": {
+          "local_compute_ms": 13.552,
+          "network_latency_ms": 474.327,
+          "combine_ms": 0.85,
+          "end_to_end_ms": 488.73
+        }
+      },
+      "mean_rejected_attempts": 5.2,
+      "mean_traffic_mib": 6.333
+    }
+  ]
+}

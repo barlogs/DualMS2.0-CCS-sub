@@ -1,0 +1,30 @@
+Network signer 1 received retry: next_attempt=2 rejected_signers=[2] session=network-session-001-attempt-002
+Network signer 1 received retry: next_attempt=3 rejected_signers=[1] session=network-session-001-attempt-003
+Network signer 1 received retry: next_attempt=4 rejected_signers=[1 2] session=network-session-001-attempt-004
+Network signer 1 received retry: next_attempt=5 rejected_signers=[1] session=network-session-001-attempt-005
+Rounding01 network signer 1 complete: coordinator=127.0.0.1:7100 profile=sec3-rounding01-n8 q=4261376513 signer_M=1.22284 success_attempt=5 rejected_attempts=4 pre_signing=3787.605 ms online=4655.865 ms wall=8443.471 ms keygen=2.275 ms keyagg=2.980 ms local_sign1_total=28.513 ms local_sign2_total=117.711 ms bytes_out=139391 bytes_in=597639
++----------------------+--------------------+
+| Signer Summary       |                    |
++----------------------+--------------------+
+| Metric               | Value              |
++----------------------+--------------------+
+| role                 | signer             |
+| signer_id            | 1                  |
+| coordinator_public   | 127.0.0.1:7100     |
+| parameter_set        | sec3-rounding01-n8 |
+| q                    | 4261376513         |
+| signer_m             | 1.222845           |
+| target_rejection_mn  | 5.000000           |
+| success_attempt      | 5                  |
+| rejected_attempts    | 4                  |
+| pre_signing_ms       | 3787.605           |
+| online_ms            | 4655.865           |
+| wall_ms              | 8443.471           |
+| keygen_ms            | 2.275              |
+| keyagg_ms            | 2.980              |
+| local_sign1_total_ms | 28.513             |
+| local_sign2_total_ms | 117.711            |
+| bytes_in             | 597639             |
+| bytes_out            | 139391             |
++----------------------+--------------------+
+NETWORK_SUMMARY {"role":"signer","signer_id":1,"coordinator_public":"127.0.0.1:7100","message":"rounding01-vps-network-demo-n8-profile8-rounding01-n8-20260425-224131-run-003","parameter_set":"sec3-rounding01-n8","q":4261376513,"signer_m":1.2228445449938519,"target_rejection_mn":5,"success_attempt":5,"rejected_attempts":4,"pre_signing_ms":3787.605124,"online_ms":4655.865082,"wall_ms":8443.470535,"keygen_ms":2.274795,"keyagg_ms":2.979812,"local_sign1_total_ms":28.512715,"local_sign2_total_ms":117.710701,"bytes_in":597639,"bytes_out":139391}

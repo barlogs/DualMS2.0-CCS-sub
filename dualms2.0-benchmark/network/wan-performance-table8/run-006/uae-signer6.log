@@ -1,0 +1,26 @@
+Rounding01 network signer 6 complete: coordinator=47.76.63.156:7100 profile=sec3-rounding01-n8 q=4261376513 signer_M=1.22284 success_attempt=1 rejected_attempts=0 pre_signing=1859.095 ms online=1096.656 ms wall=2955.751 ms keygen=0.864 ms keyagg=4.525 ms local_sign1_total=5.116 ms local_sign2_total=13.795 ms bytes_out=54163 bytes_in=199168
++----------------------+--------------------+
+| Signer Summary       |                    |
++----------------------+--------------------+
+| Metric               | Value              |
++----------------------+--------------------+
+| role                 | signer             |
+| signer_id            | 6                  |
+| coordinator_public   | 47.76.63.156:7100  |
+| parameter_set        | sec3-rounding01-n8 |
+| q                    | 4261376513         |
+| signer_m             | 1.222845           |
+| target_rejection_mn  | 5.000000           |
+| success_attempt      | 1                  |
+| rejected_attempts    | 0                  |
+| pre_signing_ms       | 1859.095           |
+| online_ms            | 1096.656           |
+| wall_ms              | 2955.751           |
+| keygen_ms            | 0.864              |
+| keyagg_ms            | 4.525              |
+| local_sign1_total_ms | 5.116              |
+| local_sign2_total_ms | 13.795             |
+| bytes_in             | 199168             |
+| bytes_out            | 54163              |
++----------------------+--------------------+
+NETWORK_SUMMARY {"role":"signer","signer_id":6,"coordinator_public":"47.76.63.156:7100","message":"rounding01-vps-network-demo-n8-profile8-rounding01-n8-20260425-224131-run-006","parameter_set":"sec3-rounding01-n8","q":4261376513,"signer_m":1.2228445449938519,"target_rejection_mn":5,"success_attempt":1,"rejected_attempts":0,"pre_signing_ms":1859.095044,"online_ms":1096.656136,"wall_ms":2955.751491,"keygen_ms":0.863831,"keyagg_ms":4.524815,"local_sign1_total_ms":5.116341,"local_sign2_total_ms":13.794666,"bytes_in":199168,"bytes_out":54163}

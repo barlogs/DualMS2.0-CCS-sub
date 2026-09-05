@@ -1,108 +1,136 @@
-# Open Science Artifacts
+# Artifact for CCS2026 B Submiss 303
 
-This directory contains the Sage parameter scripts and Go benchmark artifacts for the proof-of-concept implementations.
+## Overview
 
-## How to Use This Artifact
+This artifact accompanies the paper **“DualMS 2.0: Practical Lattice-Based Two-Round Fiat–Shamir
+Multi-Signature with Better Efficiency”** (CCS 2026, B Submission 303).<br>
 
-Download or clone the anonymous artifact from this url:
+## Artifact Contents
 
-```text
-https://anonymous.4open.science/r/DualMS20Artifact43ED
-```
+The artifact contains two components:
 
-Then enter the artifact directory:
+1. `sage/`: SageMath scripts for the parameter and size results in Tables 1, 6, and 8.
+   - `table1.sage` outputs the Table 1 size comparison (run `sage table1.sage`).
+   - `table6.sage` outputs the Table 6 summary&nbsp;&nbsp;(run `sage table6.sage`).
+     - `dualms.sage`, `dualms-rounding.sage`, `dualms2.0-non-rounding.sage`, and `dualms2.0-rounding.sage`: scheme data.
+     - `dualms_common.sage`, `lwe_estimator.py`: shared helpers and MLWE estimates functions.
+   - `table8.sage` outputs the structured Table 8 WAN summary (run `sage table8.sage`).
+   - `wan-benchmark-n8.sage`: Supporting scripts of Table 8 WAN experiment parameters.
+2. `*-benchmark/`: Go benchmarks for DualMS and rounded DualMS2.0.
+   - `bin/`: prebuilt Linux binary.
+   - `internal/core/`: scheme implementation.
+   - `internal/local/`: local benchmark.
+   - `network/`: WAN benchmark.
 
-```bash
-cd <artifact-directory>
-```
+## Requirements
 
-This artifact requires SageMath, Python 3, and Go. The following sections describe how to run the Sage parameter scripts, local benchmarks, and WAN benchmarks.
-
-## Sage Parameter Scripts
-
-The following Sage scripts correspond to the parameter settings in Table 6 of the paper:
-
-| Scheme | Sage script | Notebook |
-| --- | --- | --- |
-| `DualMS` baseline | `sage/dualms.sage` | `sage/dualms.ipynb` |
-| `DualMS2.0` without rounding | `sage/dualms2.0-non-rounding.sage` | `sage/dualms2.0-non-rounding.ipynb` |
-| `DualMS2.0` with rounding | `sage/dualms2.0-rounding.sage` | `sage/dualms2.0-rounding.ipynb` |
-
-The scripts use `sage/dualms_common.sage` for shared helper functions and `sage/lwe_estimator.py` for MLWE estimates.
-
-Before running, install Python 3 and SageMath.
-
-Run:
-
-```bash
-cd openscience/sage
-sage dualms.sage
-sage dualms2.0-non-rounding.sage
-sage dualms2.0-rounding.sage
-```
+- Linux AMD64 runs the prebuilt Go binaries directly.
+- Go 1.19 or later is required to build or run the Go source. Dependencies are
+  declared in `go.mod`.
+- SageMath is required for the Table 1, Table 6, and Table 8 scripts.
 
 ## Benchmark
 
-The benchmark artifacts are pure Go implementations for evaluating the proposed constructions. They require Go 1.19 or later. Lattigo and the other dependencies are declared in `go.mod` and are downloaded by the Go toolchain on first use.
+Experiments ran on Ubuntu 24.04.3 on a laptop with an AMD Ryzen 7 6800H (8 cores, 4.3 GHz) and 32 GB RAM, using single CPU core.
 
-**WARNING:** These implementations are academic proof-of-concept prototypes and are not intended for production deployment.
+**Results may vary across hardware, environments, and network conditions.**
 
-### Codebase Overview
+### 1. Sage
 
-- `dualms-benchmark/`
-  - Go benchmark artifact for the `DualMS` baseline.
-  - `main.go`: Command-line entry point for local and WAN benchmarks.
-  - `internal/core/`: Core scheme implementation, including parameters, setup, key generation, key aggregation, signing, aggregation, verification, hashing, sampling, norm checks, and ring arithmetic.
-  - `internal/local/`: Single-server local benchmark runner.
-  - `network/`: WAN benchmark runner, network message codecs, network configuration loader, n=8 configuration templates, and the WAN experiment script.
-  - `bin/`: Build-output location for the benchmark binary.
-
-- `dualms2.0-benchmark/`
-  - Go benchmark artifact for rounded `DualMS2.0`.
-  - `main.go`: Command-line entry point for local and WAN benchmarks.
-  - `internal/core/`: Core scheme implementation, including parameters, setup, key generation, key aggregation, signing, rounded aggregation, verification, hashing, sampling, norm checks, and ring arithmetic.
-  - `internal/local/`: Single-server local benchmark runner.
-  - `network/`: WAN benchmark runner, network message codecs, network configuration loader, n=8 configuration templates, and the WAN experiment script.
-  - `bin/`: Build-output location for the benchmark binary.
-
-### Local Benchmark
+> **Tables 1 and 6:** These scripts present the parameter and size results in Tables 1 and 6.
 
 Run:
 
 ```bash
-cd openscience/dualms-benchmark
-go run . bench 1 32
-go run . bench 1 1024
+cd sage
+sage table1.sage
+sage table6.sage
+```
 
-cd openscience/dualms2.0-benchmark
-go run . bench 1 32
-go run . bench 1 1024
+`table6.sage` outputs Table 6. `table6.ipynb` provides the same output through Jupyter.
+
+---
+
+### 2. Local Benchmark
+
+> **Table 7:** This benchmark presents the local performance results summarized in Table 7.
+
+Run:
+
+```bash
+cd dualms-benchmark
+./bin/dualms bench 50 32
+./bin/dualms bench 50 1024
+
+cd ../dualms2.0-benchmark
+./bin/sec3rounding bench 50 32
+./bin/sec3rounding bench 50 1024
 ```
 
 Benchmark command format:
 
 ```bash
-go run . bench <runs> <signers>
+./bin/dualms bench <runs> <signers>
+./bin/sec3rounding bench <runs> <signers>
 ```
 
 `runs` is the number of benchmark repetitions, and `signers` selects the parameter set. The default rejection and attempt parameters are used.
 
-### Network Benchmark
+To compile and run from source:
 
-The WAN scripts run the n=8 active-signer experiment across one coordinator server and three remote signer servers. The `network/net8.*.json` files are configuration templates and should be adjusted to the target hosts.
+```bash
+go run . bench <runs> <signers>
+```
 
-Deploy each benchmark directory on the coordinator server, and place the corresponding binary under `bin/` on all servers. The coordinator script uses `HK_WORKDIR` and `REMOTE_WORKDIR` to locate the coordinator and remote deployments.
+---
+
+### 3. WAN Benchmark
+> WAN benchmark performance may vary with hardware specifications, network latency, and the runtime environment.
+
+#### 3.1 The WAN experiment data for Table 8 are:
+
+1. **DualMS:** `dualms-benchmark/network/wan-performance-table8/table8-summary.json`
+2. **Rounded DualMS2.0:** `dualms2.0-benchmark/network/wan-performance-table8/table8-summary.json`
+```bash
+cd sage
+sage table8.sage
+```
+
+<div style="height: 3px; background-color: #3b82f6; margin: 24px 0;"></div>
+
+#### 3.2 WAN Experiment deployment
+
+The WAN scripts run the n=8 active-signer experiment across one coordinator server and three remote signer servers.
+
+Each benchmark's `network/net8.*.json` files are configuration templates and should be adjusted to the target hosts.
+
+Each `network/table8_summary.py` formats the coordinator JSONL output; the WAN runner invokes it after completing the runs.
+
+Deploy each benchmark directory on the coordinator server, and place the corresponding binary under `bin/` on all servers. The coordinator script uses `HK_WORKDIR` and `REMOTE_WORKDIR` to locate the coordinator and remote deployments respectively.
+
+---
+
+Before running, adjust the two JSON configuration files and the WAN script for each scheme:
+
+- DualMS: `dualms-benchmark/network/net8.dualms.vps.hk.json`, `dualms-benchmark/network/net8.dualms.vps.remote.json`, and `dualms-benchmark/network/run_dualms_network_experiments.sh`.
+- Rounded DualMS2.0: `dualms2.0-benchmark/network/net8.rounding.vps.hk.json`, `dualms2.0-benchmark/network/net8.rounding.vps.remote.json`, and `dualms2.0-benchmark/network/run_rounding_network_experiments.sh`.
+
+The HK and remote JSON templates differ only in `coordinator_public`: the coordinator uses `127.0.0.1:7100`, while remote signers use the HK public address. Set the remote hosts, SSH user and key, ports, and deployment directories in the script.
 
 Run on the coordinator server:
 
 ```bash
-cd openscience/dualms-benchmark
+cd ccs2026-artifacts/dualms-benchmark
 CGO_ENABLED=0 go build -trimpath -ldflags="-s -w" -o bin/dualms .
 HK_WORKDIR="$PWD" REMOTE_WORKDIR="$PWD" ./network/run_dualms_network_experiments.sh 10
 
-cd openscience/dualms2.0-benchmark
+cd ccs2026-artifacts/dualms2.0-benchmark
 CGO_ENABLED=0 go build -trimpath -ldflags="-s -w" -o bin/sec3rounding .
 HK_WORKDIR="$PWD" REMOTE_WORKDIR="$PWD" ./network/run_rounding_network_experiments.sh 10
 ```
 
-Output summaries are written under `network-runs/`.
+Each execution creates a timestamped directory under `network-runs/` on the coordinator server and writes the run logs and JSONL summaries there.
+
+## Disclaimer
+
+This proof-of-concept artifact is only used for the artifact evaluation of CCS 2026 B Submission 303 and is not intended for any production deployment.

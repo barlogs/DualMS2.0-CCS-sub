@@ -1,0 +1,36 @@
+Network signer 1 received retry: next_attempt=2 rejected_signers=[3] session=network-session-001-attempt-002
+Network signer 1 received retry: next_attempt=3 rejected_signers=[4] session=network-session-001-attempt-003
+Network signer 1 received retry: next_attempt=4 rejected_signers=[5] session=network-session-001-attempt-004
+Network signer 1 received retry: next_attempt=5 rejected_signers=[0 6] session=network-session-001-attempt-005
+Network signer 1 received retry: next_attempt=6 rejected_signers=[0 1] session=network-session-001-attempt-006
+Network signer 1 received retry: next_attempt=7 rejected_signers=[4 6] session=network-session-001-attempt-007
+Network signer 1 received retry: next_attempt=8 rejected_signers=[6] session=network-session-001-attempt-008
+Network signer 1 received retry: next_attempt=9 rejected_signers=[7] session=network-session-001-attempt-009
+Network signer 1 received retry: next_attempt=10 rejected_signers=[7] session=network-session-001-attempt-010
+Network signer 1 received retry: next_attempt=11 rejected_signers=[2 6 7] session=network-session-001-attempt-011
+Rounding01 network signer 1 complete: coordinator=127.0.0.1:7100 profile=sec3-rounding01-n8 q=4261376513 signer_M=1.22284 success_attempt=11 rejected_attempts=10 pre_signing=3600.566 ms online=8682.830 ms wall=12283.397 ms keygen=1.273 ms keyagg=3.494 ms local_sign1_total=60.777 ms local_sign2_total=245.633 ms bytes_out=442499 bytes_in=1195363
++----------------------+--------------------+
+| Signer Summary       |                    |
++----------------------+--------------------+
+| Metric               | Value              |
++----------------------+--------------------+
+| role                 | signer             |
+| signer_id            | 1                  |
+| coordinator_public   | 127.0.0.1:7100     |
+| parameter_set        | sec3-rounding01-n8 |
+| q                    | 4261376513         |
+| signer_m             | 1.222845           |
+| target_rejection_mn  | 5.000000           |
+| success_attempt      | 11                 |
+| rejected_attempts    | 10                 |
+| pre_signing_ms       | 3600.566           |
+| online_ms            | 8682.830           |
+| wall_ms              | 12283.397          |
+| keygen_ms            | 1.273              |
+| keyagg_ms            | 3.494              |
+| local_sign1_total_ms | 60.777             |
+| local_sign2_total_ms | 245.633            |
+| bytes_in             | 1195363            |
+| bytes_out            | 442499             |
++----------------------+--------------------+
+NETWORK_SUMMARY {"role":"signer","signer_id":1,"coordinator_public":"127.0.0.1:7100","message":"rounding01-vps-network-demo-n8-profile8-rounding01-n8-20260425-224131-run-010","parameter_set":"sec3-rounding01-n8","q":4261376513,"signer_m":1.2228445449938519,"target_rejection_mn":5,"success_attempt":11,"rejected_attempts":10,"pre_signing_ms":3600.56601,"online_ms":8682.82959,"wall_ms":12283.396921,"keygen_ms":1.272864,"keyagg_ms":3.494162,"local_sign1_total_ms":60.777193,"local_sign2_total_ms":245.63348,"bytes_in":1195363,"bytes_out":442499}

@@ -1,0 +1,28 @@
+Network signer 4 received retry: next_attempt=2 rejected_signers=[4 5] session=network-session-001-attempt-002
+Network signer 4 received retry: next_attempt=3 rejected_signers=[1 2 6 7] session=network-session-001-attempt-003
+Rounding01 network signer 4 complete: coordinator=47.76.63.156:7100 profile=sec3-rounding01-n8 q=4261376513 signer_M=1.22284 success_attempt=3 rejected_attempts=2 pre_signing=1942.301 ms online=2808.483 ms wall=4750.784 ms keygen=2.063 ms keyagg=13.032 ms local_sign1_total=53.093 ms local_sign2_total=114.023 ms bytes_out=110259 bytes_in=398411
++----------------------+--------------------+
+| Signer Summary       |                    |
++----------------------+--------------------+
+| Metric               | Value              |
++----------------------+--------------------+
+| role                 | signer             |
+| signer_id            | 4                  |
+| coordinator_public   | 47.76.63.156:7100  |
+| parameter_set        | sec3-rounding01-n8 |
+| q                    | 4261376513         |
+| signer_m             | 1.222845           |
+| target_rejection_mn  | 5.000000           |
+| success_attempt      | 3                  |
+| rejected_attempts    | 2                  |
+| pre_signing_ms       | 1942.301           |
+| online_ms            | 2808.483           |
+| wall_ms              | 4750.784           |
+| keygen_ms            | 2.063              |
+| keyagg_ms            | 13.032             |
+| local_sign1_total_ms | 53.093             |
+| local_sign2_total_ms | 114.023            |
+| bytes_in             | 398411             |
+| bytes_out            | 110259             |
++----------------------+--------------------+
+NETWORK_SUMMARY {"role":"signer","signer_id":4,"coordinator_public":"47.76.63.156:7100","message":"rounding01-vps-network-demo-n8-profile8-rounding01-n8-20260425-224131-run-008","parameter_set":"sec3-rounding01-n8","q":4261376513,"signer_m":1.2228445449938519,"target_rejection_mn":5,"success_attempt":3,"rejected_attempts":2,"pre_signing_ms":1942.301014,"online_ms":2808.482736,"wall_ms":4750.78421,"keygen_ms":2.062751,"keyagg_ms":13.032297,"local_sign1_total_ms":53.093094,"local_sign2_total_ms":114.022985,"bytes_in":398411,"bytes_out":110259}

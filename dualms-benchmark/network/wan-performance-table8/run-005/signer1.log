@@ -1,0 +1,27 @@
+Network signer 1 received retry: next_attempt=2 rejected_signers=[0 5] session=network-session-001-attempt-002
+Network signer 1 complete: coordinator=127.0.0.1:7100 profile=dualms-n8 q=137438949889 signer_M=1.21974 success_attempt=2 rejected_attempts=1 pre_signing=6492.960 ms online=3797.030 ms wall=10289.989 ms keygen=0.852 ms keyagg=1.718 ms local_sign1_total=5.959 ms local_sign2_total=24.221 ms bytes_out=139011 bytes_in=249244
++----------------------+----------------+
+| Signer Summary       |                |
++----------------------+----------------+
+| Metric               | Value          |
++----------------------+----------------+
+| role                 | signer         |
+| signer_id            | 1              |
+| coordinator_public   | 127.0.0.1:7100 |
+| parameter_set        | dualms-n8      |
+| q                    | 137438949889   |
+| signer_m             | 1.219740       |
+| target_rejection_mn  | 4.899339       |
+| success_attempt      | 2              |
+| rejected_attempts    | 1              |
+| pre_signing_ms       | 6492.960       |
+| online_ms            | 3797.030       |
+| wall_ms              | 10289.989      |
+| keygen_ms            | 0.852          |
+| keyagg_ms            | 1.718          |
+| local_sign1_total_ms | 5.959          |
+| local_sign2_total_ms | 24.221         |
+| bytes_in             | 249244         |
+| bytes_out            | 139011         |
++----------------------+----------------+
+NETWORK_SUMMARY {"role":"signer","signer_id":1,"coordinator_public":"127.0.0.1:7100","message":"dualms-vps-network-demo-n8-profile8-dualms-n8-20260807-182632-run-005","parameter_set":"dualms-n8","q":137438949889,"signer_m":1.2197397828542256,"target_rejection_mn":4.89933923498657,"success_attempt":2,"rejected_attempts":1,"pre_signing_ms":6492.959578,"online_ms":3797.029606,"wall_ms":10289.989409,"keygen_ms":0.851712,"keyagg_ms":1.718307,"local_sign1_total_ms":5.959205,"local_sign2_total_ms":24.221407,"bytes_in":249244,"bytes_out":139011}

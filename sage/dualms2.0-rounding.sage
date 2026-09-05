@@ -88,8 +88,8 @@ def profile_result(profile):
     msis_c = msis_classical_bits(gamma2, N, m, q)
 
     return {
-        "profile": profile["name"], "n": n, "q_bits": q_bits,
-        "m": m, "ell": ell, "nu_b": nu_b, "nu_w": nu_w,
+        "profile": profile["name"], "n": n, "N": N, "q_bits": q_bits,
+        "m": m, "ell": ell, "eta": eta, "nu_b": nu_b, "nu_w": nu_w,
         "pk_kb": pk_kb, "aggpk_kb": aggpk_kb, "msg1_kb": msg1_kb,
         "sig_i_kb": sig_i_kb, "aggsig_kb": aggsig_kb,
         "pk_plus_sig_kb": aggpk_kb + aggsig_kb, "log_sigma": log(sigma, 2),
@@ -99,14 +99,28 @@ def profile_result(profile):
 def fmt(x, digits=2):
     return ("%%.%df" % digits) % RR(x).n()
 
-print("DualMS2.0 rounding parameter summary")
-print("profile | n | q_bits | m | ell | nu_b | nu_w | pk | aggpk | msg1 | sig | aggsig | aggpk+aggsig | log_sigma | MSIS | MLWE")
-for result in [profile_result(profile) for profile in PROFILES]:
-    print(
-        result["profile"], "|", result["n"], "|", result["q_bits"], "|",
-        result["m"], "|", result["ell"], "|", result["nu_b"], "|", result["nu_w"], "|",
-        fmt(result["pk_kb"]), "|", fmt(result["aggpk_kb"]), "|", fmt(result["msg1_kb"]), "|",
-        fmt(result["sig_i_kb"]), "|", fmt(result["aggsig_kb"]), "|",
-        fmt(result["pk_plus_sig_kb"]), "|", fmt(result["log_sigma"]), "|",
-        fmt(result["msis_c"], 1), "|", fmt(result["mlwe_c"], 1)
-    )
+RESULTS = [profile_result(profile) for profile in PROFILES]
+N32, N1024 = RESULTS
+
+parameter_rows = [
+    ["n", N32["n"], N1024["n"]],
+    ["N", N32["N"], N1024["N"]],
+    ["ceil(log(q))", N32["q_bits"], N1024["q_bits"]],
+    ["m", N32["m"], N1024["m"]],
+    ["ell", N32["ell"], N1024["ell"]],
+    ["eta", N32["eta"], N1024["eta"]],
+    ["nu_b", N32["nu_b"], N1024["nu_b"]],
+    ["nu_w", N32["nu_w"], N1024["nu_w"]],
+    ["|pk|", fmt(N32["pk_kb"]), fmt(N1024["pk_kb"])],
+    ["|aggpk|", fmt(N32["aggpk_kb"]), fmt(N1024["aggpk_kb"])],
+    ["|sig|", fmt(N32["sig_i_kb"]), fmt(N1024["sig_i_kb"])],
+    ["|AggSig|", fmt(N32["aggsig_kb"]), fmt(N1024["aggsig_kb"])],
+    ["|aggpk| + |AggSig|", fmt(N32["pk_plus_sig_kb"]), fmt(N1024["pk_plus_sig_kb"])],
+    ["log(sigma)", fmt(N32["log_sigma"]), fmt(N1024["log_sigma"])],
+    ["MSIS", fmt(N32["msis_c"], 1), fmt(N1024["msis_c"], 1)],
+    ["MLWE", fmt(N32["mlwe_c"], 1), fmt(N1024["mlwe_c"], 1)],
+]
+
+if not globals().get("TABLE6_MODE", False):
+    print("DualMS2.0 rounding parameter table")
+    print(table([["Parameter", "DualMS2.0 n=32", "DualMS2.0 n=1024"]] + parameter_rows, header_row=True))

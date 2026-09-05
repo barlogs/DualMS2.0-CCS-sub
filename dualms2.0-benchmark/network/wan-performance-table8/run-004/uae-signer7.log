@@ -1,0 +1,46 @@
+Network signer 7 received retry: next_attempt=2 rejected_signers=[4] session=network-session-001-attempt-002
+Network signer 7 received retry: next_attempt=3 rejected_signers=[0 1] session=network-session-001-attempt-003
+Network signer 7 received retry: next_attempt=4 rejected_signers=[3 4] session=network-session-001-attempt-004
+Network signer 7 received retry: next_attempt=5 rejected_signers=[7] session=network-session-001-attempt-005
+Network signer 7 received retry: next_attempt=6 rejected_signers=[0 2 7] session=network-session-001-attempt-006
+Network signer 7 received retry: next_attempt=7 rejected_signers=[5] session=network-session-001-attempt-007
+Network signer 7 received retry: next_attempt=8 rejected_signers=[3] session=network-session-001-attempt-008
+Network signer 7 received retry: next_attempt=9 rejected_signers=[4] session=network-session-001-attempt-009
+Network signer 7 received retry: next_attempt=10 rejected_signers=[0 1 4] session=network-session-001-attempt-010
+Network signer 7 received retry: next_attempt=11 rejected_signers=[5] session=network-session-001-attempt-011
+Network signer 7 received retry: next_attempt=12 rejected_signers=[1 2 4 7] session=network-session-001-attempt-012
+Network signer 7 received retry: next_attempt=13 rejected_signers=[3] session=network-session-001-attempt-013
+Network signer 7 received retry: next_attempt=14 rejected_signers=[1 4] session=network-session-001-attempt-014
+Network signer 7 received retry: next_attempt=15 rejected_signers=[4 7] session=network-session-001-attempt-015
+Network signer 7 received retry: next_attempt=16 rejected_signers=[3 7] session=network-session-001-attempt-016
+Network signer 7 received retry: next_attempt=17 rejected_signers=[0 1 6] session=network-session-001-attempt-017
+Network signer 7 received retry: next_attempt=18 rejected_signers=[1] session=network-session-001-attempt-018
+Network signer 7 received retry: next_attempt=19 rejected_signers=[3] session=network-session-001-attempt-019
+Network signer 7 received retry: next_attempt=20 rejected_signers=[5 6] session=network-session-001-attempt-020
+Network signer 7 received retry: next_attempt=21 rejected_signers=[3] session=network-session-001-attempt-021
+Rounding01 network signer 7 complete: coordinator=47.76.63.156:7100 profile=sec3-rounding01-n8 q=4261376513 signer_M=1.22284 success_attempt=21 rejected_attempts=20 pre_signing=2191.627 ms online=13906.910 ms wall=16098.538 ms keygen=0.873 ms keyagg=3.699 ms local_sign1_total=99.923 ms local_sign2_total=338.886 ms bytes_out=749943 bytes_in=2191579
++----------------------+--------------------+
+| Signer Summary       |                    |
++----------------------+--------------------+
+| Metric               | Value              |
++----------------------+--------------------+
+| role                 | signer             |
+| signer_id            | 7                  |
+| coordinator_public   | 47.76.63.156:7100  |
+| parameter_set        | sec3-rounding01-n8 |
+| q                    | 4261376513         |
+| signer_m             | 1.222845           |
+| target_rejection_mn  | 5.000000           |
+| success_attempt      | 21                 |
+| rejected_attempts    | 20                 |
+| pre_signing_ms       | 2191.627           |
+| online_ms            | 13906.910          |
+| wall_ms              | 16098.538          |
+| keygen_ms            | 0.873              |
+| keyagg_ms            | 3.699              |
+| local_sign1_total_ms | 99.923             |
+| local_sign2_total_ms | 338.886            |
+| bytes_in             | 2191579            |
+| bytes_out            | 749943             |
++----------------------+--------------------+
+NETWORK_SUMMARY {"role":"signer","signer_id":7,"coordinator_public":"47.76.63.156:7100","message":"rounding01-vps-network-demo-n8-profile8-rounding01-n8-20260425-224131-run-004","parameter_set":"sec3-rounding01-n8","q":4261376513,"signer_m":1.2228445449938519,"target_rejection_mn":5,"success_attempt":21,"rejected_attempts":20,"pre_signing_ms":2191.626895,"online_ms":13906.9105,"wall_ms":16098.537705,"keygen_ms":0.873009,"keyagg_ms":3.698583,"local_sign1_total_ms":99.922964,"local_sign2_total_ms":338.885874,"bytes_in":2191579,"bytes_out":749943}

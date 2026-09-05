@@ -1,0 +1,27 @@
+Network signer 4 received retry: next_attempt=2 rejected_signers=[2 3 5] session=network-session-001-attempt-002
+Rounding01 network signer 4 complete: coordinator=47.76.63.156:7100 profile=sec3-rounding01-n8 q=4261376513 signer_M=1.22284 success_attempt=2 rejected_attempts=1 pre_signing=1955.106 ms online=2219.289 ms wall=4174.396 ms keygen=1.337 ms keyagg=3.654 ms local_sign1_total=101.290 ms local_sign2_total=49.864 ms bytes_out=95693 bytes_in=298790
++----------------------+--------------------+
+| Signer Summary       |                    |
++----------------------+--------------------+
+| Metric               | Value              |
++----------------------+--------------------+
+| role                 | signer             |
+| signer_id            | 4                  |
+| coordinator_public   | 47.76.63.156:7100  |
+| parameter_set        | sec3-rounding01-n8 |
+| q                    | 4261376513         |
+| signer_m             | 1.222845           |
+| target_rejection_mn  | 5.000000           |
+| success_attempt      | 2                  |
+| rejected_attempts    | 1                  |
+| pre_signing_ms       | 1955.106           |
+| online_ms            | 2219.289           |
+| wall_ms              | 4174.396           |
+| keygen_ms            | 1.337              |
+| keyagg_ms            | 3.654              |
+| local_sign1_total_ms | 101.290            |
+| local_sign2_total_ms | 49.864             |
+| bytes_in             | 298790             |
+| bytes_out            | 95693              |
++----------------------+--------------------+
+NETWORK_SUMMARY {"role":"signer","signer_id":4,"coordinator_public":"47.76.63.156:7100","message":"rounding01-vps-network-demo-n8-profile8-rounding01-n8-20260425-224131-run-011","parameter_set":"sec3-rounding01-n8","q":4261376513,"signer_m":1.2228445449938519,"target_rejection_mn":5,"success_attempt":2,"rejected_attempts":1,"pre_signing_ms":1955.106292,"online_ms":2219.289015,"wall_ms":4174.395567,"keygen_ms":1.337425,"keyagg_ms":3.653618,"local_sign1_total_ms":101.290292,"local_sign2_total_ms":49.863657,"bytes_in":298790,"bytes_out":95693}

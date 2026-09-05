@@ -289,10 +289,14 @@ func printBenchmarkSummary(cfg Config, metrics []benchmarkRunMetrics) {
 	printBenchmarkNormSummary(metrics)
 	fmt.Println()
 
+	keyGenSequentialName := "KeyGen sequential (all signers)"
+	if cfg.NumSigners == 32 || cfg.NumSigners == 1024 {
+		keyGenSequentialName = fmt.Sprintf("KeyGen sequential (all %d signers)", cfg.NumSigners)
+	}
 	rows := []benchmarkTableRow{
 		newBenchmarkDurationRow("Setup", metricDurations(metrics, func(m benchmarkRunMetrics) time.Duration { return m.SetupDuration })),
 		newBenchmarkFloatRow("KeyGen (per-signer local)", flattenPerSigner(metrics, func(m benchmarkRunMetrics) []float64 { return m.KeyGenPerSignerMillis })),
-		newBenchmarkDurationRow("KeyGen sequential (all signers)", metricDurations(metrics, func(m benchmarkRunMetrics) time.Duration { return m.KeyGenDuration })),
+		newBenchmarkDurationRow(keyGenSequentialName, metricDurations(metrics, func(m benchmarkRunMetrics) time.Duration { return m.KeyGenDuration })),
 		newBenchmarkDurationRow("KeyAgg", metricDurations(metrics, func(m benchmarkRunMetrics) time.Duration { return m.KeyAggDuration })),
 		newBenchmarkFloatRow("Sign1 (per-signer local)", flattenPerSigner(metrics, func(m benchmarkRunMetrics) []float64 { return m.Sign1PerSignerMillis })),
 		newBenchmarkDurationRow("Sign1 successful attempt sequential", metricDurations(metrics, func(m benchmarkRunMetrics) time.Duration { return m.Sign1SuccessfulDuration })),
@@ -305,8 +309,13 @@ func printBenchmarkSummary(cfg Config, metrics []benchmarkRunMetrics) {
 		newBenchmarkDurationRow("Online total incl. rejected attempts", metricDurations(metrics, func(m benchmarkRunMetrics) time.Duration { return m.OnlineDuration })),
 		newBenchmarkDurationRow("End-to-end incl. setup/verify", metricDurations(metrics, func(m benchmarkRunMetrics) time.Duration { return m.EndToEndDuration })),
 	}
-	printBenchmarkTable(rows)
-	printDerivedSignTermSummary(cfg.NumSigners, metrics)
+	terms := deriveSignTerms(cfg.NumSigners, metrics)
+	if cfg.NumSigners == 32 || cfg.NumSigners == 1024 {
+		printBenchmarkTableGrouped(rows, terms.TRejectedMean)
+	} else {
+		printBenchmarkTable(rows)
+	}
+	printDerivedSignTermSummary(terms)
 }
 
 func printBenchmarkNormSummary(metrics []benchmarkRunMetrics) {
@@ -381,6 +390,36 @@ func printBenchmarkTable(rows []benchmarkTableRow) {
 	fmt.Println("+------------------------------------------+-----------+-----------+-----------+-----------+-----------+")
 }
 
+func printBenchmarkTableGrouped(rows []benchmarkTableRow, rejectedMean float64) {
+	const border = "+------------------------------------------+-----------+-----------+-----------+-----------+-----------+"
+
+	fmt.Println(border)
+	fmt.Println("| Phase                                    | Mean ms   | Median ms | Min ms    | Max ms    | StdDev ms |")
+	fmt.Println(border)
+	for index, row := range rows {
+		fmt.Printf("| %-40s | %9.3f | %9.3f | %9.3f | %9.3f | %9.3f |\n",
+			row.Name,
+			row.Mean,
+			row.Median,
+			row.Min,
+			row.Max,
+			row.StdDev,
+		)
+		if index == 3 || index == 9 || index == 11 || index == 13 {
+			fmt.Println(border)
+		}
+	}
+	fmt.Printf("| %-40s | %9.3f | %9s | %9s | %9s | %9s |\n",
+		"t",
+		rejectedMean,
+		"-",
+		"-",
+		"-",
+		"-",
+	)
+	fmt.Println(border)
+}
+
 type derivedSignTerms struct {
 	TRejectedMean        float64
 	Sign1Time1           float64
@@ -391,8 +430,7 @@ type derivedSignTerms struct {
 	Sign2Time1TPlusTime2 float64
 }
 
-func printDerivedSignTermSummary(numSigners int, metrics []benchmarkRunMetrics) {
-	terms := deriveSignTerms(numSigners, metrics)
+func printDerivedSignTermSummary(terms derivedSignTerms) {
 	fmt.Println()
 	fmt.Println("Derived Sign terms")
 	fmt.Printf("  t(rejected_mean)=%.3f\n", terms.TRejectedMean)
