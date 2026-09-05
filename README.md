@@ -47,8 +47,6 @@ sage table1.sage
 sage table6.sage
 ```
 
-`table6.sage` outputs Table 6. `table6.ipynb` provides the same output through Jupyter.
-
 ---
 
 ### 2. Local Benchmark
