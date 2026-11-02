@@ -1,4 +1,4 @@
-# Artifact for CCS2026 B Submiss 303
+# Artifact for CCS2026 B Submission 303
 
 ## Overview
 
@@ -7,20 +7,40 @@ Multi-Signature with Better Efficiency”** (CCS 2026, B Submission 303).<br>
 
 ## Artifact Contents
 
-The artifact contains two components:
-
-1. `sage/`: SageMath scripts for the parameter and size results in Tables 1, 6, and 8.
-   - `table1.sage` outputs the Table 1 size comparison (run `sage table1.sage`).
-   - `table6.sage` outputs the Table 6 summary&nbsp;&nbsp;(run `sage table6.sage`).
-     - `dualms.sage`, `dualms-rounding.sage`, `dualms2.0-non-rounding.sage`, and `dualms2.0-rounding.sage`: scheme data.
-     - `dualms_common.sage`, `lwe_estimator.py`: shared helpers and MLWE estimates functions.
-   - `table8.sage` outputs the structured Table 8 WAN summary (run `sage table8.sage`).
-   - `wan-benchmark-n8.sage`: Supporting scripts of Table 8 WAN experiment parameters.
-2. `*-benchmark/`: Go benchmarks for DualMS and rounded DualMS2.0.
-   - `bin/`: prebuilt Linux binary.
-   - `internal/core/`: scheme implementation.
-   - `internal/local/`: local benchmark.
-   - `network/`: WAN benchmark.
+```text
+. (artifact root)
+├── run-menu.sh                 # One-click menu for all experiments (Tables 1, 6, 7, 8)
+├── run-menu.cmd                # Windows launcher (via Git Bash / WSL)
+├── setup-deps.sh               # Installs SageMath (Miniforge) and checks Go
+├── Artifact Appendix.pdf       # CCS artifact appendix
+├── README.md
+├── sage/                       # SageMath scripts (Tables 1, 6, 8)
+│   ├── table1.sage             # Table 1 size comparison
+│   ├── table6.sage             # Table 6 parameters / bit security
+│   ├── table8.sage             # Formats the packaged WAN summaries into Table 8
+│   ├── dualms*.sage            # Scheme data used by table1/table6
+│   ├── dualms_common.sage      # Shared helpers
+│   ├── lwe_estimator.py        # MLWE estimator
+│   └── wan-benchmark-n8.sage   # Table 8 WAN experiment parameters
+├── dualms-benchmark/           # Go benchmark: DualMS
+│   ├── bin/dualms              # Prebuilt Linux AMD64 binary
+│   ├── main.go, go.mod
+│   ├── internal/core/          # Scheme implementation
+│   ├── internal/local/         # Local benchmark (Table 7)
+│   └── network/                # WAN benchmark code, configs, runner script
+│       └── wan-performance-table8/
+│           ├── table8-summary.json   # DualMS row of Table 8 (10 runs)
+│           └── run-001 … run-010/    # Per-run coordinator/signer logs
+└── dualms2.0-benchmark/        # Go benchmark: rounded DualMS2.0
+    ├── bin/sec3rounding        # Prebuilt Linux AMD64 binary
+    ├── main.go, go.mod
+    ├── internal/core/
+    ├── internal/local/
+    └── network/
+        └── wan-performance-table8/
+            ├── table8-summary.json   # DualMS2.0 row of Table 8 (20 runs)
+            └── run-001 … run-020/
+```
 
 ## Requirements
 
@@ -28,6 +48,7 @@ The artifact contains two components:
 - Go 1.19 or later is required to build or run the Go source. Dependencies are
   declared in `go.mod`.
 - SageMath is required for the Table 1, Table 6, and Table 8 scripts.
+- To install SageMath, run `./setup-deps.sh`.
 
 ## Benchmark
 
@@ -35,64 +56,53 @@ Experiments ran on Ubuntu 24.04.3 on a laptop with an AMD Ryzen 7 6800H (8 cores
 
 **Results may vary across hardware, environments, and network conditions.**
 
-### 1. Sage
+### Quick start
 
-> **Tables 1 and 6:** These scripts present the parameter and size results in Tables 1 and 6.
-
-Run:
+From the artifact root, run:
 
 ```bash
-cd sage
-sage table1.sage
-sage table6.sage
+./run-menu.sh
+```
+
+```text
+[1] Paper sizes / bit security     (Tables 1 & 6)
+[2] Local benchmark                (Table 7)
+[3] WAN experiment Table 8
+[0] Exit
 ```
 
 ---
 
-### 2. Local Benchmark
+### 1. Size / bit security levels (Tables 1 and 6)
 
-> **Table 7:** This benchmark presents the local performance results summarized in Table 7.
+Run `./run-menu.sh`, choose `[1]`, then pick Table 1, Table 6, or both.
 
-Run:
-
-```bash
-cd dualms-benchmark
-./bin/dualms bench 50 32
-./bin/dualms bench 50 1024
-
-cd ../dualms2.0-benchmark
-./bin/sec3rounding bench 50 32
-./bin/sec3rounding bench 50 1024
-```
-
-Benchmark command format:
-
-```bash
-./bin/dualms bench <runs> <signers>
-./bin/sec3rounding bench <runs> <signers>
-```
-
-`runs` is the number of benchmark repetitions, and `signers` selects the parameter set. The default rejection and attempt parameters are used.
-
-To compile and run from source:
-
-```bash
-go run . bench <runs> <signers>
-```
+Outputs should match Tables 1 and 6.
 
 ---
 
-### 3. WAN Benchmark
-> WAN benchmark performance may vary with hardware specifications, network latency, and the runtime environment.
+### 2. Local benchmark (Table 7)
 
-#### 3.1 The WAN experiment data for Table 8 are:
+Run `./run-menu.sh`, choose `[2]`, then select DualMS / DualMS2.0 with n=32 or 1024, or run all four (50 runs by default; `r` changes it).
 
-1. **DualMS:** `dualms-benchmark/network/wan-performance-table8/table8-summary.json`
-2. **Rounded DualMS2.0:** `dualms2.0-benchmark/network/wan-performance-table8/table8-summary.json`
-```bash
-cd sage
-sage table8.sage
-```
+Compare latencies to Table 7. Absolute numbers vary by CPU; relative DualMS vs. DualMS2.0 trends should align.
+
+Manual command: `./bin/dualms bench <runs> <signers>` in `dualms-benchmark/`, or `./bin/sec3rounding bench <runs> <signers>` in `dualms2.0-benchmark/`.
+
+---
+
+### 3. WAN benchmark (Table 8)
+
+#### 3.1 Packaged WAN data
+
+Run `./run-menu.sh`, choose `[3]`, then `[1]` to format the packaged WAN summaries into Table 8:
+
+1. **DualMS:** `dualms-benchmark/network/wan-performance-table8/table8-summary.json` (10 runs)
+2. **Rounded DualMS2.0:** `dualms2.0-benchmark/network/wan-performance-table8/table8-summary.json` (20 runs)
+
+Per-run logs are in the `run-xxx/` folders next to each summary. Traffic is reported in MiB.
+
+> **WAN experiment note:** The Netherlands VPS used in the paper's Table 8 WAN setup (signers 4 and 5) has expired and is no longer available. Therefore, the WAN experiment results of the DualMS scheme come from a later, separate experiment: the Netherlands signer server was dropped, and signers were redistributed to HK (coordinator + signer 1), US1 (signers 2–4), and UAE (signers 5–7). Latency and traffic thus differ from Table 8.
 
 <div style="height: 3px; background-color: #3b82f6; margin: 24px 0;"></div>
 

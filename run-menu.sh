@@ -72,19 +72,16 @@ run_local_bench() {
 
 print_shipped_wan() {
   echo
-  if command -v sage >/dev/null 2>&1; then
-    (cd "$ROOT/sage" && sage table8.sage) || true
-  else
-    if command -v python3 >/dev/null 2>&1; then
-      (cd "$ROOT/sage" && python3 table8.sage) || {
-        echo "[!] Could not run table8.sage with python3 either."
-        return 1
-      }
-    else
-      echo "[!] Need sage or python3 to format Table 8 summaries."
-      return 1
-    fi
+  # table8.sage is pure Python; prefer python3 (sage -c copies break relative paths).
+  if command -v python3 >/dev/null 2>&1; then
+    (cd "$ROOT/sage" && python3 table8.sage) && return 0
   fi
+  if command -v sage >/dev/null 2>&1; then
+    local sage_dir="$ROOT/sage"
+    (cd "$sage_dir" && sage -c "import os; os.chdir(r'"'"'$sage_dir'"'"'); globals().pop('"'"'__file__'"'"', None); load('"'"'table8.sage'"'"')") && return 0
+  fi
+  echo "[!] Need python3 or sage to format Table 8 summaries."
+  return 1
 }
 
 menu_size() {
