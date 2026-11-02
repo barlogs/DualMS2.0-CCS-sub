@@ -1,0 +1,30 @@
+Network signer 5 received retry: next_attempt=2 rejected_signers=[7] session=network-session-001-attempt-002
+Network signer 5 received retry: next_attempt=3 rejected_signers=[4] session=network-session-001-attempt-003
+Network signer 5 received retry: next_attempt=4 rejected_signers=[0] session=network-session-001-attempt-004
+Network signer 5 received retry: next_attempt=5 rejected_signers=[3] session=network-session-001-attempt-005
+Network signer 5 complete: coordinator=47.76.63.156:7100 profile=dualms-n8 q=137438949889 signer_M=1.21974 success_attempt=5 rejected_attempts=4 pre_signing=3767.143 ms online=3927.699 ms wall=7694.843 ms keygen=0.679 ms keyagg=1.128 ms local_sign1_total=59.140 ms local_sign2_total=167.145 ms bytes_out=331722 bytes_in=498560
++----------------------+-------------------+
+| Signer Summary       |                   |
++----------------------+-------------------+
+| Metric               | Value             |
++----------------------+-------------------+
+| role                 | signer            |
+| signer_id            | 5                 |
+| coordinator_public   | 47.76.63.156:7100 |
+| parameter_set        | dualms-n8         |
+| q                    | 137438949889      |
+| signer_m             | 1.219740          |
+| target_rejection_mn  | 4.899339          |
+| success_attempt      | 5                 |
+| rejected_attempts    | 4                 |
+| pre_signing_ms       | 3767.143          |
+| online_ms            | 3927.699          |
+| wall_ms              | 7694.843          |
+| keygen_ms            | 0.679             |
+| keyagg_ms            | 1.128             |
+| local_sign1_total_ms | 59.140            |
+| local_sign2_total_ms | 167.145           |
+| bytes_in             | 498560            |
+| bytes_out            | 331722            |
++----------------------+-------------------+
+NETWORK_SUMMARY {"role":"signer","signer_id":5,"coordinator_public":"47.76.63.156:7100","message":"dualms-vps-network-demo-n8-profile8-dualms-n8-20260425-233641-run-019","parameter_set":"dualms-n8","q":137438949889,"signer_m":1.2197397828542256,"target_rejection_mn":4.89933923498657,"success_attempt":5,"rejected_attempts":4,"pre_signing_ms":3767.143431,"online_ms":3927.699418,"wall_ms":7694.843059,"keygen_ms":0.679203,"keyagg_ms":1.128294,"local_sign1_total_ms":59.139728,"local_sign2_total_ms":167.144642,"bytes_in":498560,"bytes_out":331722}

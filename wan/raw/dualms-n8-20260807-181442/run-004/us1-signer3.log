@@ -1,0 +1,33 @@
+Network signer 3 received retry: next_attempt=2 rejected_signers=[4] session=network-session-001-attempt-002
+Network signer 3 received retry: next_attempt=3 rejected_signers=[1 4 6] session=network-session-001-attempt-003
+Network signer 3 received retry: next_attempt=4 rejected_signers=[0 3 4] session=network-session-001-attempt-004
+Network signer 3 received retry: next_attempt=5 rejected_signers=[0 1] session=network-session-001-attempt-005
+Network signer 3 received retry: next_attempt=6 rejected_signers=[0 4] session=network-session-001-attempt-006
+Network signer 3 received retry: next_attempt=7 rejected_signers=[3] session=network-session-001-attempt-007
+Network signer 3 received retry: next_attempt=8 rejected_signers=[0 3 6] session=network-session-001-attempt-008
+Network signer 3 complete: coordinator=47.76.63.156:7100 profile=dualms-n8 q=137438949889 signer_M=1.21974 success_attempt=8 rejected_attempts=7 pre_signing=2340.106 ms online=6420.698 ms wall=8760.805 ms keygen=2.379 ms keyagg=1.398 ms local_sign1_total=62.304 ms local_sign2_total=229.609 ms bytes_out=369192 bytes_in=747891
++----------------------+-------------------+
+| Signer Summary       |                   |
++----------------------+-------------------+
+| Metric               | Value             |
++----------------------+-------------------+
+| role                 | signer            |
+| signer_id            | 3                 |
+| coordinator_public   | 47.76.63.156:7100 |
+| parameter_set        | dualms-n8         |
+| q                    | 137438949889      |
+| signer_m             | 1.219740          |
+| target_rejection_mn  | 4.899339          |
+| success_attempt      | 8                 |
+| rejected_attempts    | 7                 |
+| pre_signing_ms       | 2340.106          |
+| online_ms            | 6420.698          |
+| wall_ms              | 8760.805          |
+| keygen_ms            | 2.379             |
+| keyagg_ms            | 1.398             |
+| local_sign1_total_ms | 62.304            |
+| local_sign2_total_ms | 229.609           |
+| bytes_in             | 747891            |
+| bytes_out            | 369192            |
++----------------------+-------------------+
+NETWORK_SUMMARY {"role":"signer","signer_id":3,"coordinator_public":"47.76.63.156:7100","message":"dualms-vps-network-demo-n8-profile8-dualms-n8-20260807-181442-run-004","parameter_set":"dualms-n8","q":137438949889,"signer_m":1.2197397828542256,"target_rejection_mn":4.89933923498657,"success_attempt":8,"rejected_attempts":7,"pre_signing_ms":2340.106493,"online_ms":6420.698446,"wall_ms":8760.80528,"keygen_ms":2.378949,"keyagg_ms":1.398446,"local_sign1_total_ms":62.303683,"local_sign2_total_ms":229.609266,"bytes_in":747891,"bytes_out":369192}

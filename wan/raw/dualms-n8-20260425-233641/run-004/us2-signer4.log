@@ -1,0 +1,31 @@
+Network signer 4 received retry: next_attempt=2 rejected_signers=[7] session=network-session-001-attempt-002
+Network signer 4 received retry: next_attempt=3 rejected_signers=[1 2] session=network-session-001-attempt-003
+Network signer 4 received retry: next_attempt=4 rejected_signers=[2] session=network-session-001-attempt-004
+Network signer 4 received retry: next_attempt=5 rejected_signers=[0 1 3] session=network-session-001-attempt-005
+Network signer 4 received retry: next_attempt=6 rejected_signers=[0 6] session=network-session-001-attempt-006
+Network signer 4 complete: coordinator=47.76.63.156:7100 profile=dualms-n8 q=137438949889 signer_M=1.21974 success_attempt=6 rejected_attempts=5 pre_signing=3697.266 ms online=4887.015 ms wall=8584.282 ms keygen=1.469 ms keyagg=1.101 ms local_sign1_total=31.155 ms local_sign2_total=211.026 ms bytes_out=395959 bytes_in=581674
++----------------------+-------------------+
+| Signer Summary       |                   |
++----------------------+-------------------+
+| Metric               | Value             |
++----------------------+-------------------+
+| role                 | signer            |
+| signer_id            | 4                 |
+| coordinator_public   | 47.76.63.156:7100 |
+| parameter_set        | dualms-n8         |
+| q                    | 137438949889      |
+| signer_m             | 1.219740          |
+| target_rejection_mn  | 4.899339          |
+| success_attempt      | 6                 |
+| rejected_attempts    | 5                 |
+| pre_signing_ms       | 3697.266          |
+| online_ms            | 4887.015          |
+| wall_ms              | 8584.282          |
+| keygen_ms            | 1.469             |
+| keyagg_ms            | 1.101             |
+| local_sign1_total_ms | 31.155            |
+| local_sign2_total_ms | 211.026           |
+| bytes_in             | 581674            |
+| bytes_out            | 395959            |
++----------------------+-------------------+
+NETWORK_SUMMARY {"role":"signer","signer_id":4,"coordinator_public":"47.76.63.156:7100","message":"dualms-vps-network-demo-n8-profile8-dualms-n8-20260425-233641-run-004","parameter_set":"dualms-n8","q":137438949889,"signer_m":1.2197397828542256,"target_rejection_mn":4.89933923498657,"success_attempt":6,"rejected_attempts":5,"pre_signing_ms":3697.266375,"online_ms":4887.015368,"wall_ms":8584.281893,"keygen_ms":1.468943,"keyagg_ms":1.101354,"local_sign1_total_ms":31.155358,"local_sign2_total_ms":211.026237,"bytes_in":581674,"bytes_out":395959}

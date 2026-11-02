@@ -1,0 +1,27 @@
+Network signer 5 received retry: next_attempt=2 rejected_signers=[4] session=network-session-001-attempt-002
+Network signer 5 complete: coordinator=47.76.63.156:7100 profile=dualms-n8 q=137438949889 signer_M=1.21974 success_attempt=2 rejected_attempts=1 pre_signing=1960.957 ms online=2092.733 ms wall=4053.690 ms keygen=0.765 ms keyagg=1.729 ms local_sign1_total=12.699 ms local_sign2_total=49.886 ms bytes_out=139011 bytes_in=249242
++----------------------+-------------------+
+| Signer Summary       |                   |
++----------------------+-------------------+
+| Metric               | Value             |
++----------------------+-------------------+
+| role                 | signer            |
+| signer_id            | 5                 |
+| coordinator_public   | 47.76.63.156:7100 |
+| parameter_set        | dualms-n8         |
+| q                    | 137438949889      |
+| signer_m             | 1.219740          |
+| target_rejection_mn  | 4.899339          |
+| success_attempt      | 2                 |
+| rejected_attempts    | 1                 |
+| pre_signing_ms       | 1960.957          |
+| online_ms            | 2092.733          |
+| wall_ms              | 4053.690          |
+| keygen_ms            | 0.765             |
+| keyagg_ms            | 1.729             |
+| local_sign1_total_ms | 12.699            |
+| local_sign2_total_ms | 49.886            |
+| bytes_in             | 249242            |
+| bytes_out            | 139011            |
++----------------------+-------------------+
+NETWORK_SUMMARY {"role":"signer","signer_id":5,"coordinator_public":"47.76.63.156:7100","message":"dualms-vps-network-demo-n8-profile8-dualms-n8-20260807-182046-run-006","parameter_set":"dualms-n8","q":137438949889,"signer_m":1.2197397828542256,"target_rejection_mn":4.89933923498657,"success_attempt":2,"rejected_attempts":1,"pre_signing_ms":1960.956856,"online_ms":2092.732518,"wall_ms":4053.689594,"keygen_ms":0.764854,"keyagg_ms":1.729275,"local_sign1_total_ms":12.698549,"local_sign2_total_ms":49.885559,"bytes_in":249242,"bytes_out":139011}

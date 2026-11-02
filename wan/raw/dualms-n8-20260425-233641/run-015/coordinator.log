@@ -1,0 +1,57 @@
+DualMS network coordinator ready: listen=0.0.0.0:7100 active_signers=8 profile=dualms-n8 q=137438949889 signer_M=1.21974
+Waiting for 7 remote signer(s)...
+Accepted signer 1 bootstrap: bytes_in=10537 bytes_out=181
+Accepted signer 3 bootstrap: bytes_in=10537 bytes_out=181
+Accepted signer 2 bootstrap: bytes_in=10537 bytes_out=181
+Accepted signer 4 bootstrap: bytes_in=10537 bytes_out=181
+Accepted signer 5 bootstrap: bytes_in=10537 bytes_out=181
+Accepted signer 7 bootstrap: bytes_in=10537 bytes_out=181
+Accepted signer 6 bootstrap: bytes_in=10537 bytes_out=181
+Network attempt 1 rejected by signers [3 4 7]; retrying with session network-session-001-attempt-002
+Network attempt 2 rejected by signers [2 3 5 6]; retrying with session network-session-001-attempt-003
+Network attempt 3 rejected by signers [1]; retrying with session network-session-001-attempt-004
+Network attempt 4 rejected by signers [0]; retrying with session network-session-001-attempt-005
+Network attempt 5 rejected by signers [0 4]; retrying with session network-session-001-attempt-006
+Network attempt 6 rejected by signers [5]; retrying with session network-session-001-attempt-007
+Network attempt 7 rejected by signers [1 2]; retrying with session network-session-001-attempt-008
+Network attempt 8 rejected by signers [3]; retrying with session network-session-001-attempt-009
+Network signing complete: signers=[0 1 2 3 4 5 6 7] keyagg=t_tilde keyagg_duration=2.020 ms success_attempt=9 rejected_attempts=8 bootstrap=5563.303 ms online=7127.252 ms wall=12690.556 ms coordinator_sign1_success=4.343 ms coordinator_sign1_total=45.862 ms coordinator_sign2_success=10.822 ms coordinator_sign2_total=137.232 ms round1_collect_success=222.839 ms round1_broadcast_success=6.964 ms round1_collect_total=2720.327 ms round1_broadcast_total=32.032 ms partial_collect_success=408.259 ms decision_broadcast_success=0.331 ms partial_collect_total=4181.823 ms decision_broadcast_total=2.055 ms sign1_network_success=229.803 ms sign2_network_success=408.591 ms sign1_e2e_success=234.145 ms sign2_e2e_success=420.851 ms sagg=1.438 ms verify=4.603 ms bytes_in=3447979 bytes_out=5816973
++-------------------------------+-------------------+
+| Coordinator Summary           |                   |
++-------------------------------+-------------------+
+| Metric                        | Value             |
++-------------------------------+-------------------+
+| role                          | coordinator       |
+| signers                       | [0 1 2 3 4 5 6 7] |
+| parameter_set                 | dualms-n8         |
+| q                             | 137438949889      |
+| signer_m                      | 1.219740          |
+| target_rejection_mn           | 4.899339          |
+| success_attempt               | 9                 |
+| rejected_attempts             | 8                 |
+| bootstrap_ms                  | 5563.303          |
+| online_ms                     | 7127.252          |
+| wall_ms                       | 12690.556         |
+| keyagg_ms                     | 2.020             |
+| coord_sign1_success_ms        | 4.343             |
+| coord_sign1_total_ms          | 45.862            |
+| coord_sign2_success_ms        | 10.822            |
+| coord_sign2_total_ms          | 137.232           |
+| round1_collect_success_ms     | 222.839           |
+| round1_broadcast_success_ms   | 6.964             |
+| round1_collect_total_ms       | 2720.327          |
+| round1_broadcast_total_ms     | 32.032            |
+| partial_collect_success_ms    | 408.259           |
+| decision_broadcast_success_ms | 0.331             |
+| partial_collect_total_ms      | 4181.823          |
+| decision_broadcast_total_ms   | 2.055             |
+| sign1_network_success_ms      | 229.803           |
+| sign2_network_success_ms      | 408.591           |
+| sign1_e2e_success_ms          | 234.145           |
+| sign2_e2e_success_ms          | 420.851           |
+| sagg_ms                       | 1.438             |
+| verify_ms                     | 4.603             |
+| bytes_in                      | 3447979           |
+| bytes_out                     | 5816973           |
++-------------------------------+-------------------+
+NETWORK_SUMMARY {"role":"coordinator","coordinator_id":0,"signer_ids":[0,1,2,3,4,5,6,7],"active_signers":8,"message":"dualms-vps-network-demo-n8-profile8-dualms-n8-20260425-233641-run-015","parameter_set":"dualms-n8","q":137438949889,"signer_m":1.2197397828542256,"target_rejection_mn":4.89933923498657,"success_attempt":9,"rejected_attempts":8,"bootstrap_ms":5563.30303,"online_ms":7127.252105,"wall_ms":12690.555911,"keyagg_ms":2.020033,"coordinator_sign1_success_ms":4.342588,"coordinator_sign1_total_ms":45.862315,"coordinator_sign2_success_ms":10.821973,"coordinator_sign2_total_ms":137.232062,"round1_collect_success_ms":222.838831,"round1_broadcast_success_ms":6.963986,"round1_collect_total_ms":2720.326894,"round1_broadcast_total_ms":32.032224,"partial_collect_success_ms":408.259281,"decision_broadcast_success_ms":0.33145,"partial_collect_total_ms":4181.822696,"decision_broadcast_total_ms":2.055019,"sign1_network_success_ms":229.802817,"sign2_network_success_ms":408.590731,"sign1_e2e_success_ms":234.145405,"sign2_e2e_success_ms":420.85083,"sagg_ms":1.438126,"verify_ms":4.603083,"bytes_in":3447979,"bytes_out":5816973}

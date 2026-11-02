@@ -1,0 +1,28 @@
+Network signer 7 received retry: next_attempt=2 rejected_signers=[5] session=network-session-001-attempt-002
+Network signer 7 received retry: next_attempt=3 rejected_signers=[4 5 6 7] session=network-session-001-attempt-003
+Network signer 7 complete: coordinator=47.76.63.156:7100 profile=dualms-n8 q=137438949889 signer_M=1.21974 success_attempt=3 rejected_attempts=2 pre_signing=2060.569 ms online=2542.767 ms wall=4603.336 ms keygen=0.748 ms keyagg=1.919 ms local_sign1_total=11.484 ms local_sign2_total=60.710 ms bytes_out=151501 bytes_in=332353
++----------------------+-------------------+
+| Signer Summary       |                   |
++----------------------+-------------------+
+| Metric               | Value             |
++----------------------+-------------------+
+| role                 | signer            |
+| signer_id            | 7                 |
+| coordinator_public   | 47.76.63.156:7100 |
+| parameter_set        | dualms-n8         |
+| q                    | 137438949889      |
+| signer_m             | 1.219740          |
+| target_rejection_mn  | 4.899339          |
+| success_attempt      | 3                 |
+| rejected_attempts    | 2                 |
+| pre_signing_ms       | 2060.569          |
+| online_ms            | 2542.767          |
+| wall_ms              | 4603.336          |
+| keygen_ms            | 0.748             |
+| keyagg_ms            | 1.919             |
+| local_sign1_total_ms | 11.484            |
+| local_sign2_total_ms | 60.710            |
+| bytes_in             | 332353            |
+| bytes_out            | 151501            |
++----------------------+-------------------+
+NETWORK_SUMMARY {"role":"signer","signer_id":7,"coordinator_public":"47.76.63.156:7100","message":"dualms-vps-network-demo-n8-profile8-dualms-n8-20260807-181442-run-007","parameter_set":"dualms-n8","q":137438949889,"signer_m":1.2197397828542256,"target_rejection_mn":4.89933923498657,"success_attempt":3,"rejected_attempts":2,"pre_signing_ms":2060.56855,"online_ms":2542.767349,"wall_ms":4603.336129,"keygen_ms":0.747723,"keyagg_ms":1.919034,"local_sign1_total_ms":11.483946,"local_sign2_total_ms":60.710081,"bytes_in":332353,"bytes_out":151501}
